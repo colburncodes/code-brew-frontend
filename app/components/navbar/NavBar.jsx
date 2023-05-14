@@ -1,9 +1,11 @@
 "use client";
+import { useState } from "react";
 import Container from "@mui/material/Container";
 import AppBar from "@mui/material/AppBar";
 import { Box, Button, styled, Stack, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
+import LoginRegisterModal from "../LoginRegisterModal";
 
 const Menu = styled(Box)({
   borderBottom: "1px solid black",
@@ -33,6 +35,10 @@ const LogoDesc = styled(Box)({
 });
 
 export default function NavBar() {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <>
       <Container>
@@ -56,6 +62,7 @@ export default function NavBar() {
                 Year In Review
               </MenuItem>
               <Button
+                onClick={handleOpen}
                 color="inherit"
                 sx={{
                   color: "#000",
@@ -65,6 +72,7 @@ export default function NavBar() {
                 Log in
               </Button>
               <MenuItem
+                onClick={handleOpen}
                 color="inherit"
                 sx={{
                   color: "#0049fb",
@@ -93,6 +101,7 @@ export default function NavBar() {
             </IconButton>
           </Menu>
         </AppBar>
+        <LoginRegisterModal open={open} handleClose={handleClose} />
       </Container>
     </>
   );
