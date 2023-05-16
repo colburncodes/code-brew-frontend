@@ -120,9 +120,9 @@ export default function LoginModal({ open, handleClose }) {
                     textAlign: "center",
                     background: "blue",
                     color: "#fff",
-                    width: 322,
                     padding: 1,
                   }}
+                  fullWidth
                 >
                   Sign In
                 </Button>
@@ -130,25 +130,53 @@ export default function LoginModal({ open, handleClose }) {
             </StyledBox>
           </TabPanel>
           <TabPanel value={value} index={1}>
-            <Box flex={1}>
-              <div>
-                <TextField
-                  id="outlined-basic"
-                  label="email address"
-                  variant="outlined"
+            <StyledBox>
+              <Box flex={1}>
+                <Typography variant="h4">Become a Subscriber</Typography>
+                <Typography variant="body">
+                  Join the CodeBrew community to get regular updates from Coding
+                  on key topics like JavaScript, C#, Software Engineering and
+                  more. <br />
+                  -- CodeBrew
+                </Typography>
+                <Typography variant="body">
+                  <br />
+                  <br />
+                  Already Joined?
+                </Typography>
+              </Box>
+              <Box flex={1}>
+                <div>
+                  <TextField
+                    id="outlined-basic"
+                    label="email address"
+                    variant="outlined"
+                    fullWidth
+                  />
+                  <TextField
+                    id="outlined-basic"
+                    label="password"
+                    variant="outlined"
+                    type="password"
+                    autoComplete="current-password"
+                    fullWidth
+                    sx={{ marginTop: 1, marginBottom: 1 }}
+                  />
+                </div>
+                <Button
+                  size="large"
+                  sx={{
+                    textAlign: "center",
+                    background: "blue",
+                    color: "#fff",
+                    padding: 1,
+                  }}
                   fullWidth
-                />
-                <TextField
-                  id="outlined-basic"
-                  label="password"
-                  variant="outlined"
-                  type="password"
-                  autoComplete="current-password"
-                  fullWidth
-                  sx={{ marginTop: 1, marginBottom: 1 }}
-                />
-              </div>
-            </Box>
+                >
+                  Sign Up
+                </Button>
+              </Box>
+            </StyledBox>
           </TabPanel>
         </Box>
       </Modal>
